@@ -1,3 +1,7 @@
+'''
+Solve the problem of puzzle game
+github: https://github.com/VictoriyaRoy/task2
+'''
 def row_check(board: list) -> bool:
     '''
     Check if in each rows there are numbers from 1 to 9 without repetitions
@@ -89,7 +93,7 @@ def color_check(board: list) -> list:
                 color_board[color] += (line[-1])
                 line = line[:-1]
     return row_check(color_board)
-        
+
 
 def validate_board(board: list) -> bool:
     '''
