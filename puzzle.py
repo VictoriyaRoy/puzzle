@@ -49,6 +49,20 @@ def column_check(board: list) -> bool:
     return row_check(new_board)
 
 
+def formate_board(board: list) -> list:
+    '''
+    Formate board by removing all stars
+    >>> formate_board(['*3*', '**2', '*87'])
+    ['3', '2', '87']
+    >>> formate_board([])
+    []
+    '''
+    new_board = []
+    for line in board:
+        new_board.append(line.replace('*', ''))
+    return new_board
+
+
 if __name__ == '__main__':
     from doctest import testmod
     print(testmod())
