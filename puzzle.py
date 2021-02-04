@@ -42,19 +42,19 @@ def column_check(board: list) -> bool:
     >>> column_check([])
     True
     '''
-    new_board = ['' for i in range(9)]
+    new_board = ['' for _ in range(9)]
     for line in board:
         for index, element in enumerate(line):
             new_board[index] += element
     return row_check(new_board)
 
 
-def formate_board(board: list) -> list:
+def format_board(board: list) -> list:
     '''
-    Formate board by removing all stars
-    >>> formate_board(['*3*', '**2', '*87'])
+    Format board by removing all stars
+    >>> format_board(['*3*', '**2', '*87'])
     ['3', '2', '87']
-    >>> formate_board([])
+    >>> format_board([])
     []
     '''
     new_board = []
@@ -62,6 +62,34 @@ def formate_board(board: list) -> list:
         new_board.append(line.replace('*', ''))
     return new_board
 
+
+def color_check(board: list) -> list:
+    '''
+    Check if in each color area there are numbers from 1 to 9 without repetitions
+    >>> board = [\
+    "**** ****", \
+    "***1 ****", \
+    "**  3****", \
+    "* 4 1****", \
+    "     9 5 ", \
+    " 6  83  *", \
+    "3   1  **", \
+    "  8  2***", \
+    "  2  ****"]
+    >>> color_check(board)
+    True
+    >>> color_check([])
+    True
+    '''
+    board = format_board(board)
+    color_board = ['' for _ in range(5)]
+    for color in range(5):
+        for line in board:
+            if line:
+                color_board[color] += (line[-1])
+                line = line[:-1]
+    return row_check(color_board)
+        
 
 if __name__ == '__main__':
     from doctest import testmod
