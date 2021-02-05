@@ -17,7 +17,7 @@ def row_check(board: list) -> bool:
     "  2  ****"]
     >>> row_check(board)
     True
-    >>> row_check([])
+    >>> row_check(['**', '**'])
     True
     '''
 
@@ -43,10 +43,11 @@ def column_check(board: list) -> bool:
     "  2  ****"]
     >>> column_check(board)
     False
-    >>> column_check([])
+    >>> column_check(['**', '**'])
     True
     '''
-    new_board = ['' for _ in range(9)]
+    length = len(board)
+    new_board = ['' for _ in range(length)]
     for line in board:
         for index, element in enumerate(line):
             new_board[index] += element
@@ -58,8 +59,8 @@ def format_board(board: list) -> list:
     Format board by removing all stars
     >>> format_board(['*3*', '**2', '*87'])
     ['3', '2', '87']
-    >>> format_board([])
-    []
+    >>> format_board(['**', '**'])
+    ['', '']
     '''
     new_board = []
     for line in board:
@@ -82,12 +83,13 @@ def color_check(board: list) -> list:
     "  2  ****"]
     >>> color_check(board)
     True
-    >>> color_check([])
+    >>> color_check(['**', '**'])
     True
     '''
     board = format_board(board)
-    color_board = ['' for _ in range(5)]
-    for color in range(5):
+    number_of_colors = len(board) - 4
+    color_board = ['' for _ in range(number_of_colors)]
+    for color in range(number_of_colors):
         for line in board:
             if line:
                 color_board[color] += (line[-1])
@@ -110,7 +112,7 @@ def validate_board(board: list) -> bool:
     "  2  ****"]
     >>> validate_board(board)
     False
-    >>> validate_board([])
+    >>> validate_board(['**', '**'])
     True
     '''
     return row_check(board) and column_check(board) and color_check(board)
