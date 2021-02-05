@@ -4,7 +4,7 @@ github: https://github.com/VictoriyaRoy/puzzle
 '''
 def row_check(board: list) -> bool:
     '''
-    Check if in each rows there are numbers from 1 to 9 without repetitions
+    Check if in each rows there are numbers from 1 to n without repetitions
     >>> board = [\
     "**** ****", \
     "***1 ****", \
@@ -30,7 +30,7 @@ def row_check(board: list) -> bool:
 
 def column_check(board: list) -> bool:
     '''
-    Check if in each rows there are numbers from 1 to 9 without repetitions
+    Check if in each rows there are numbers from 1 to n without repetitions
     >>> board = [\
     "**** ****", \
     "***1 ****", \
@@ -70,7 +70,7 @@ def format_board(board: list) -> list:
 
 def color_check(board: list) -> list:
     '''
-    Check if in each color area there are numbers from 1 to 9 without repetitions
+    Check if in each color area there are numbers from 1 to n without repetitions
     >>> board = [\
     "**** ****", \
     "***1 ****", \
