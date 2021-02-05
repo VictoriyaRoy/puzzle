@@ -1,6 +1,6 @@
 '''
 Solve the problem of puzzle game
-github: https://github.com/VictoriyaRoy/task2
+github: https://github.com/VictoriyaRoy/puzzle
 '''
 def row_check(board: list) -> bool:
     '''
